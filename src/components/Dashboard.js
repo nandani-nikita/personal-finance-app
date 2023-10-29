@@ -24,14 +24,14 @@ function Dashboard() {
               <Link to="saving-contribution">Saving-Contibution</Link>
             </li>
             <li>
-              <Link to="settings">Settings</Link>
+              <Link to="logout">Logout</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="help">Help</Link>
             </li>
             <li>
               <Link to="support">Support</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </header>
@@ -42,3 +42,5 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
+
