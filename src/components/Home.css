@@ -1,0 +1,44 @@
+/* Define the main container styling */
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the form headings */
+  .home-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the sub-headings */
+  .home-container h3 {
+    margin-top: 30px;
+  }
+  
+  /* Style the financial summary */
+  .home-container p {
+    margin: 10px 0;
+  }
+  
+  /* Style the savings goals list */
+  .home-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .home-container li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .home-container strong {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .home-container p {
+    margin: 4px 0;
+  }
+  

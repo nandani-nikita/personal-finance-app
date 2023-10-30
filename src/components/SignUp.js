@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './SignUp.css';
+
 
 function Signup() {
   const [user, setUser] = useState({
@@ -36,7 +38,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="signup-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div>

@@ -1,0 +1,61 @@
+/* Define the main container styling */
+.contributions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the form headings */
+  .contributions-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the sub-headings */
+  .contributions-container h3 {
+    margin-top: 30px;
+  }
+  
+  /* Style the form fields */
+  .contributions-container label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .contributions-container input,
+  .contributions-container select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the submit button */
+  .contributions-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .contributions-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the contributions details section */
+  .contributions-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contributions-container li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .contributions-container p {
+    margin: 4px 0;
+  }
+  

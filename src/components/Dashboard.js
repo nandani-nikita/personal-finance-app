@@ -4,7 +4,7 @@ import './Dashboard.css'; // Import your CSS file
 
 function Dashboard() {
   return (
-    <div>
+    <div className="dashboard-container">
       <header>
         <nav>
           <ul>

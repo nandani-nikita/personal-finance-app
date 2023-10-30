@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Expense.css'
 
 function Expense() {
   const [expenseData, setExpenseData] = useState({
@@ -111,7 +112,7 @@ function Expense() {
   }, [userId]);
 
   return (
-    <div>
+    <div className="expense-container">
       <h2>Add Expense</h2>
       <div>
         <form onSubmit={editingExpenseId !== null ? handleUpdate : handleSubmit}>

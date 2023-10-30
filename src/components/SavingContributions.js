@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './SavingContributions.css';
+
 
 function SavingsContributions() {
   const [contributionData, setContributionData] = useState({
@@ -85,7 +87,7 @@ function SavingsContributions() {
   };
 
   return (
-    <div>
+    <div className="contributions-container">
       <h2>Add Contribution</h2>
       <div>
         <form onSubmit={handleSubmit}>

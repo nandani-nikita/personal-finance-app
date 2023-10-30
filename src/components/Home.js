@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Home.css';
 
 function Home() {
   const [financialSummary, setFinancialSummary] = useState({
@@ -39,7 +40,7 @@ function Home() {
   }, [userId, token]);
 
   return (
-    <div>
+    <div className="home-container">
       <h2>Income, Expenses, Budget, Savings, and More</h2>
       <p>Welcome to your personal finance dashboard.</p>
 
