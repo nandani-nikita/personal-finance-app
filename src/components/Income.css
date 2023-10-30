@@ -1,0 +1,60 @@
+/* Define the main container styling */
+.income-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style the form headings */
+  .income-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the sub-headings */
+  .income-container h3 {
+    margin-top: 30px;
+  }
+  
+  /* Style the form fields */
+  .income-container label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .income-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the submit button */
+  .income-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .income-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the income details section */
+  .income-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .income-container li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .income-container p {
+    margin: 4px 0;
+  }
+  

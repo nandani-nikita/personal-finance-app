@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './Income.css';
+
 
 function Income() {
   const [incomeData, setIncomeData] = useState({
@@ -111,7 +113,7 @@ function Income() {
   }, [userId]);
 
   return (
-    <div>
+    <div className="income-container">
       <h2>Add Income</h2>
       <div>
         <form onSubmit={editingIncomeId !== null ? handleUpdate : handleSubmit}>
