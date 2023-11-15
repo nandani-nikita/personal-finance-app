@@ -16,7 +16,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/register', {
+      const response = await fetch('http://20.163.179.25:8000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -24,7 +24,7 @@ function SavingsContributions() {
 
   useEffect(() => {
     // Fetch categories
-    fetch(`http://localhost:8000/api/categories/${userId}`)
+    fetch(`http://20.163.179.25:8000/api/categories/${userId}`)
       .then((response) => response.json())
       .then((data) => {
         setCategories(data);
@@ -44,7 +44,7 @@ function SavingsContributions() {
   // Fetch contributions
   const fetchContributions = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/savings-contributions/${userId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/savings-contributions/${userId}`, {
         headers: commonHeaders, // Include common headers
       });
 
@@ -65,7 +65,7 @@ function SavingsContributions() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8000/api/savings-contributions/${userId}/${contributionData.savingsGoalId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/savings-contributions/${userId}/${contributionData.savingsGoalId}`, {
         method: 'POST',
         headers: commonHeaders, // Include common headers
         body: JSON.stringify(contributionData),

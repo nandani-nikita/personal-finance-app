@@ -26,7 +26,7 @@ function SavingsGoals() {
 
   const fetchSavingsGoals = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/savings-goals/${userId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/savings-goals/${userId}`, {
         method: 'GET',
         headers: commonHeaders,
       });
@@ -45,7 +45,7 @@ function SavingsGoals() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8000/api/savings-goals/${userId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/savings-goals/${userId}`, {
         method: 'POST',
         headers: commonHeaders,
         body: JSON.stringify(savingsGoalData),
@@ -70,7 +70,7 @@ function SavingsGoals() {
 
   const handleDelete = async (goalId) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/savings-goals/${userId}/${goalId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/savings-goals/${userId}/${goalId}`, {
         method: 'DELETE',
         headers: commonHeaders,
       });
@@ -87,7 +87,7 @@ function SavingsGoals() {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/savings-goals/${userId}/${editingSavingsGoalId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/savings-goals/${userId}/${editingSavingsGoalId}`, {
         method: 'PUT',
         headers: commonHeaders,
         body: JSON.stringify(savingsGoalData),

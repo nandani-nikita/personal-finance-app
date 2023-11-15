@@ -24,7 +24,7 @@ function Income() {
 
   const fetchIncomeDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/incomes/${userId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/incomes/${userId}`, {
         headers: commonHeaders, // Include common headers
       });
 
@@ -44,7 +44,7 @@ function Income() {
 
     try {
       console.log(incomeData);
-      const response = await fetch('http://localhost:8000/income', {
+      const response = await fetch('http://20.163.179.25:8000/income', {
         method: 'POST',
         headers: commonHeaders, // Include common headers
         body: JSON.stringify(incomeData),
@@ -69,7 +69,7 @@ function Income() {
 
   const handleDelete = async (incomeId) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/income/${userId}/${incomeId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/income/${userId}/${incomeId}`, {
         method: 'DELETE',
         headers: commonHeaders, // Include common headers
       });
@@ -87,7 +87,7 @@ function Income() {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/income/${userId}/${editingIncomeId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/income/${userId}/${editingIncomeId}`, {
         method: 'PUT',
         headers: commonHeaders, // Include common headers
         body: JSON.stringify(incomeData),

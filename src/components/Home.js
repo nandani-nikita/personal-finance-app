@@ -19,22 +19,22 @@ function Home() {
     };
 
     // Fetch total income
-    fetch(`http://localhost:8000/api/total-income/${userId}`, { headers: commonHeaders })
+    fetch(`http://20.163.179.25:8000/api/total-income/${userId}`, { headers: commonHeaders })
       .then((response) => response.json())
       .then((data) => setFinancialSummary((prevSummary) => ({ ...prevSummary, totalIncome: data.totalIncome })));
 
     // Fetch total expenses
-    fetch(`http://localhost:8000/api/total-expenses/${userId}`, { headers: commonHeaders })
+    fetch(`http://20.163.179.25:8000/api/total-expenses/${userId}`, { headers: commonHeaders })
       .then((response) => response.json())
       .then((data) => setFinancialSummary((prevSummary) => ({ ...prevSummary, totalExpenses: data.totalExpenses })));
 
     // Fetch remaining budget
-    fetch(`http://localhost:8000/api/remaining-budget/${userId}`, { headers: commonHeaders })
+    fetch(`http://20.163.179.25:8000/api/remaining-budget/${userId}`, { headers: commonHeaders })
       .then((response) => response.json())
       .then((data) => setFinancialSummary((prevSummary) => ({ ...prevSummary, remainingBudget: data.remainingBudget })));
 
     // Fetch savings goals
-    fetch(`http://localhost:8000/api/savings-goals/${userId}`, { headers: commonHeaders })
+    fetch(`http://20.163.179.25:8000/api/savings-goals/${userId}`, { headers: commonHeaders })
       .then((response) => response.json())
       .then((data) => setSavingsGoals(data));
   }, [userId, token]);

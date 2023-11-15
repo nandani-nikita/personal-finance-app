@@ -24,7 +24,7 @@ function Expense() {
 
   const fetchExpenseDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/expenses/${userId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/expenses/${userId}`, {
         headers: commonHeaders, // Include common headers
       });
 
@@ -43,7 +43,7 @@ function Expense() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/expense', {
+      const response = await fetch('http://20.163.179.25:8000/expense', {
         method: 'POST',
         headers: commonHeaders, // Include common headers
         body: JSON.stringify(expenseData),
@@ -68,7 +68,7 @@ function Expense() {
 
   const handleDelete = async (expenseId) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/expense/${userId}/${expenseId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/expense/${userId}/${expenseId}`, {
         method: 'DELETE',
         headers: commonHeaders, // Include common headers
       });
@@ -86,7 +86,7 @@ function Expense() {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/expense/${userId}/${editingExpenseId}`, {
+      const response = await fetch(`http://20.163.179.25:8000/api/expense/${userId}/${editingExpenseId}`, {
         method: 'PUT',
         headers: commonHeaders, // Include common headers
         body: JSON.stringify(expenseData),
