@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './Expense.css'
+import './Expense.css';
 
 function Expense() {
   const [expenseData, setExpenseData] = useState({
     userId: parseInt(localStorage.getItem('userId')),
     amount: 0,
     description: '',
-    category: '',
     date: '',
   });
 
@@ -14,18 +13,18 @@ function Expense() {
   const [expenses, setExpenses] = useState(null);
   const [editingExpenseId, setEditingExpenseId] = useState(null);
 
-  const userId = localStorage.getItem('userId'); // Get the userId from local storage
-  const token = localStorage.getItem('token'); // Get the token from local storage
+  const userId = localStorage.getItem('userId');
+  const token = localStorage.getItem('token');
 
   const commonHeaders = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`, // Set the Authorization header with the token
+    'Authorization': `Bearer ${token}`,
   };
 
   const fetchExpenseDetails = async () => {
     try {
       const response = await fetch(`http://20.163.179.25:8000/expenses/${userId}`, {
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
       });
 
       if (response.ok) {
@@ -45,7 +44,7 @@ function Expense() {
     try {
       const response = await fetch('http://20.163.179.25:8000/expense', {
         method: 'POST',
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
         body: JSON.stringify(expenseData),
       });
 
@@ -70,7 +69,7 @@ function Expense() {
     try {
       const response = await fetch(`http://20.163.179.25:8000/api/expense/${userId}/${expenseId}`, {
         method: 'DELETE',
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
       });
 
       if (response.ok) {
@@ -84,11 +83,14 @@ function Expense() {
     }
   };
 
-  const handleUpdate = async () => {
+  const handleUpdate = async (e) => {
     try {
+      e.preventDefault();
+      console.log('Updating expense:', expenseData);
+
       const response = await fetch(`http://20.163.179.25:8000/api/expense/${userId}/${editingExpenseId}`, {
         method: 'PUT',
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
         body: JSON.stringify(expenseData),
       });
 
@@ -96,6 +98,12 @@ function Expense() {
         setMessage('Expense updated successfully');
         setEditingExpenseId(null);
         fetchExpenseDetails();
+        setExpenseData({
+          userId: parseInt(localStorage.getItem('userId')),
+          amount: 0,
+          description: '',
+          date: '',
+        }); // Reset the form data
       } else {
         setMessage('Failed to update expense');
       }
@@ -104,9 +112,9 @@ function Expense() {
     }
   };
 
+
   useEffect(() => {
     if (userId) {
-      // Fetch expense details only if userId is available
       fetchExpenseDetails();
     }
   }, [userId]);
@@ -140,19 +148,9 @@ function Expense() {
           </div>
           <div>
             <label>
-              Category:
-              <input
-                type="text"
-                value={expenseData.category}
-                onChange={(e) => setExpenseData({ ...expenseData, category: e.target.value })}
-              />
-            </label>
-          </div>
-          <div>
-            <label>
               Date:
               <input
-                type="datetime-local"
+                type="date"
                 value={expenseData.date}
                 onChange={(e) => setExpenseData({ ...expenseData, date: e.target.value })}
               />
@@ -174,8 +172,7 @@ function Expense() {
               <li key={exp.id}>
                 <p>Amount: {exp.amount}</p>
                 <p>Description: {exp.description}</p>
-                <p>Category: {exp.category}</p>
-                <p>Date: {exp.date}</p>
+                <p>Date: {new Date(exp.date).toLocaleDateString()}</p>
                 <button onClick={() => handleEdit(exp.id)}>Edit</button>
                 <button onClick={() => handleDelete(exp.id)}>Delete</button>
               </li>

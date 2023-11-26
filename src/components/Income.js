@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Income.css';
 
-
 function Income() {
   const [incomeData, setIncomeData] = useState({
     userId: parseInt(localStorage.getItem('userId')),
@@ -14,18 +13,18 @@ function Income() {
   const [income, setIncome] = useState(null);
   const [editingIncomeId, setEditingIncomeId] = useState(null);
 
-  const userId = localStorage.getItem('userId'); // Get the userId from local storage
-  const token = localStorage.getItem('token'); // Get the token from local storage
+  const userId = localStorage.getItem('userId');
+  const token = localStorage.getItem('token');
 
   const commonHeaders = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`, // Set the Authorization header with the token
+    'Authorization': `Bearer ${token}`,
   };
 
   const fetchIncomeDetails = async () => {
     try {
       const response = await fetch(`http://20.163.179.25:8000/incomes/${userId}`, {
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
       });
 
       if (response.ok) {
@@ -43,10 +42,9 @@ function Income() {
     e.preventDefault();
 
     try {
-      console.log(incomeData);
       const response = await fetch('http://20.163.179.25:8000/income', {
         method: 'POST',
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
         body: JSON.stringify(incomeData),
       });
 
@@ -71,7 +69,7 @@ function Income() {
     try {
       const response = await fetch(`http://20.163.179.25:8000/api/income/${userId}/${incomeId}`, {
         method: 'DELETE',
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
       });
 
       if (response.ok) {
@@ -85,11 +83,12 @@ function Income() {
     }
   };
 
-  const handleUpdate = async () => {
+  const handleUpdate = async (e) => {
     try {
+      e.preventDefault();
       const response = await fetch(`http://20.163.179.25:8000/api/income/${userId}/${editingIncomeId}`, {
         method: 'PUT',
-        headers: commonHeaders, // Include common headers
+        headers: commonHeaders,
         body: JSON.stringify(incomeData),
       });
 
@@ -105,9 +104,14 @@ function Income() {
     }
   };
 
+  const handleDateChange = (e) => {
+    // Ensure the date is in "YYYY-MM-DD" format
+    const formattedDate = new Date(e.target.value).toISOString().split('T')[0];
+    setIncomeData({ ...incomeData, date: formattedDate });
+  };
+
   useEffect(() => {
     if (userId) {
-      // Fetch income details only if userId is available
       fetchIncomeDetails();
     }
   }, [userId]);
@@ -143,9 +147,9 @@ function Income() {
             <label>
               Date:
               <input
-                type="datetime-local"
+                type="date"
                 value={incomeData.date}
-                onChange={(e) => setIncomeData({ ...incomeData, date: e.target.value })}
+                onChange={handleDateChange}
               />
             </label>
           </div>
@@ -165,7 +169,7 @@ function Income() {
               <li key={inc.id}>
                 <p>Amount: {inc.amount}</p>
                 <p>Description: {inc.description}</p>
-                <p>Date: {inc.date}</p>
+                <p>Date: {new Date(inc.date).toLocaleDateString()}</p>
                 <button onClick={() => handleEdit(inc.id)}>Edit</button>
                 <button onClick={() => handleDelete(inc.id)}>Delete</button>
               </li>
