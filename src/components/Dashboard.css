@@ -1,12 +1,21 @@
 /* Define the main container styling */
 .dashboard-container {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #f4f4f4, #ddd);
+  padding: 20px;
 }
 
 /* Style the header */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #333;
-  padding: 10px;
+  color: #fff;
+  padding: 15px 0; /* Adjusted padding */
+  text-align: center; /* Center text within the header */
+  z-index: 1000; /* Ensure the header stays on top of other elements */
 }
 
 /* Style the navigation bar */
@@ -15,26 +24,29 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  display: flex; /* Use flexbox to align the list items horizontally */
 }
 
 /* Style the navigation bar list items */
-nav li {
-  float: left;
+nav {
+  display: flex;
+  justify-content: center;
 }
 
 /* Style the navigation bar links */
 nav a {
   display: block;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Add a hover effect to the links */
+/* Add a subtle hover effect to the links */
 nav a:hover {
   background-color: #ddd;
-  color: black;
+  color: #333;
 }
 
 /* Clear floats after the list items */
@@ -42,4 +54,10 @@ nav:after {
   content: "";
   display: table;
   clear: both;
+}
+
+nav li {
+  margin: 0 15px; /* Adjust the spacing between li elements */
+  float: none; /* Remove the float property */
+  display: inline-block; /* Make li elements behave like inline-block */
 }

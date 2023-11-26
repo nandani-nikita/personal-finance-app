@@ -1,4 +1,5 @@
 import React from 'react';
+import './Logout.css'; // Import your CSS file
 
 function Logout() {
   const handleLogout = () => {
@@ -11,7 +12,7 @@ function Logout() {
   };
 
   return (
-    <div>
+    <div className="logout-container">
       <h2>Logout</h2>
       <p>Are you sure you want to log out?</p>
       <button onClick={handleLogout}>Logout</button>

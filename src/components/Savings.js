@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './SavingGoals.css';
+import './SavingGoals.css'
 
 
 function SavingsGoals() {
@@ -110,7 +110,7 @@ function SavingsGoals() {
   }, []);
 
   return (
-    <div>
+    <div className='savings-goals-container'>
       <h2>Add Savings Goal</h2>
       <div>
         <form onSubmit={editingSavingsGoalId !== null ? handleUpdate : handleSubmit}>
