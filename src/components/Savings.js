@@ -112,7 +112,7 @@ function SavingsGoals() {
   return (
     <div className='savings-goals-container'>
       <h2>Add Savings Goal</h2>
-      <div>
+      <div className='add-savings-goal-section'>
         <form onSubmit={editingSavingsGoalId !== null ? handleUpdate : handleSubmit}>
           <div>
             <label>
@@ -188,7 +188,7 @@ function SavingsGoals() {
           </ul>
         </div>
       ) : null}
-      
+
     </div>
   );
 }

@@ -1,61 +1,73 @@
-/* Define the main container styling */
+/* Styles for the container */
 .contributions-container {
-    max-width: 800px;
-    margin: 60px auto 20px;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+  max-width: 100%;
+  margin: 60px auto 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the "Add Contribution" section */
+.add-contribution-section {
+  margin-bottom: 20px;
+}
+
+.add-contribution-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-contribution-section form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-contribution-section input,
+.add-contribution-section button {
+  flex: 1 1 45%; /* Adjust the width as needed */
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.add-contribution-section button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-contribution-section button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the contributions details */
+.contributions-details {
+  max-height: 40vh;
+  overflow-y: scroll;
+}
+
+/* Styles for list and items */
+.contributions-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contributions-details li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.contributions-details p {
+  margin: 4px 0;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .add-contribution-section h2 {
+    margin-top: 20px;
   }
-  
-  /* Style the form headings */
-  .contributions-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Style the sub-headings */
-  .contributions-container h3 {
-    margin-top: 30px;
-  }
-  
-  /* Style the form fields */
-  .contributions-container label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  .contributions-container input,
-  .contributions-container select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 20px;
-  }
-  
-  /* Style the submit button */
-  .contributions-container button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .contributions-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Style the contributions details section */
-  .contributions-container ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .contributions-container li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .contributions-container p {
-    margin: 4px 0;
-  }
-  
+}

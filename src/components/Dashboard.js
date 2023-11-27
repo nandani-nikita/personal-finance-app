@@ -3,9 +3,16 @@ import { Link, Outlet } from 'react-router-dom';
 import './Dashboard.css'; // Import your CSS file
 
 function Dashboard() {
+  const toggleMenu = () => {
+    const nav = document.querySelector('nav ul');
+    nav.classList.toggle('show');
+  };
   return (
     <div className="dashboard-container">
       <header>
+      <button className="menu-button" onClick={toggleMenu}>
+          Menu
+        </button>
         <nav>
           <ul>
             <li>
@@ -26,12 +33,6 @@ function Dashboard() {
             <li>
               <Link to="logout">Logout</Link>
             </li>
-            {/* <li>
-              <Link to="help">Help</Link>
-            </li>
-            <li>
-              <Link to="support">Support</Link>
-            </li> */}
           </ul>
         </nav>
       </header>

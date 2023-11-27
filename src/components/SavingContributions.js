@@ -39,6 +39,8 @@ function SavingsContributions() {
           setContributionData(goal);
         }
       });
+
+      fetchContributions();
   }, [userId]); // Include userId in dependencies
 
   // Fetch contributions
@@ -89,7 +91,7 @@ function SavingsContributions() {
   return (
     <div className="contributions-container">
       <h2>Add Contribution</h2>
-      <div>
+      <div className="add-contribution-section">
         <form onSubmit={handleSubmit}>
           <div>
             <label>

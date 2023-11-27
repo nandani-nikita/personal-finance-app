@@ -119,65 +119,69 @@ function Income() {
   return (
     <div className="income-container">
       <h2>Add Income</h2>
-      <div>
-        <form onSubmit={editingIncomeId !== null ? handleUpdate : handleSubmit}>
-          <div>
-            <label>
-              Amount:
-              <input
-                type="number"
-                value={incomeData.amount}
-                onChange={(e) =>
-                  setIncomeData({ ...incomeData, amount: parseFloat(e.target.value) || 0 })
-                }
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Description:
-              <input
-                type="text"
-                value={incomeData.description}
-                onChange={(e) => setIncomeData({ ...incomeData, description: e.target.value })}
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Date:
-              <input
-                type="date"
-                value={incomeData.date}
-                onChange={handleDateChange}
-              />
-            </label>
-          </div>
-          <div>
-            <button type="submit">
-              {editingIncomeId !== null ? 'Update Income' : 'Add Income'}
-            </button>
-          </div>
-        </form>
-      </div>
-      <p>{message}</p>
-      {income ? (
-        <div style={{ maxHeight: '40vh', overflowY: 'scroll' }}>
-          <h3>Income Details</h3>
-          <ul>
-            {income.map((inc) => (
-              <li key={inc.id}>
-                <p>Amount: {inc.amount}</p>
-                <p>Description: {inc.description}</p>
-                <p>Date: {new Date(inc.date).toLocaleDateString()}</p>
-                <button onClick={() => handleEdit(inc.id)}>Edit</button>
-                <button onClick={() => handleDelete(inc.id)}>Delete</button>
-              </li>
-            ))}
-          </ul>
+      <div className="add-income-section">
+        <div>
+          <form onSubmit={editingIncomeId !== null ? handleUpdate : handleSubmit}>
+            <div>
+              <label>
+                Amount:
+                <input
+                  type="number"
+                  value={incomeData.amount}
+                  onChange={(e) =>
+                    setIncomeData({ ...incomeData, amount: parseFloat(e.target.value) || 0 })
+                  }
+                />
+              </label>
+            </div>
+
+            <div>
+              <label>
+                Description:
+                <input
+                  type="text"
+                  value={incomeData.description}
+                  onChange={(e) => setIncomeData({ ...incomeData, description: e.target.value })}
+                />
+              </label>
+            </div>
+
+            <div>
+              <label>
+                Date:
+                <input
+                  type="date"
+                  value={incomeData.date}
+                  onChange={handleDateChange}
+                />
+              </label>
+            </div>
+
+            <div>
+              <button type="submit">
+                {editingIncomeId !== null ? 'Update Income' : 'Add Income'}
+              </button>
+            </div>
+          </form>
         </div>
-      ) : null}
-    </div>
+        <p>{message}</p>
+        {income ? (
+          <div style={{ maxHeight: '40vh', overflowY: 'scroll' }}>
+            <h3>Income Details</h3>
+            <ul>
+              {income.map((inc) => (
+                <li key={inc.id}>
+                  <p>Amount: {inc.amount}</p>
+                  <p>Description: {inc.description}</p>
+                  <p>Date: {new Date(inc.date).toLocaleDateString()}</p>
+                  <button onClick={() => handleEdit(inc.id)}>Edit</button>
+                  <button onClick={() => handleDelete(inc.id)}>Delete</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+      </div></div>
   );
 }
 

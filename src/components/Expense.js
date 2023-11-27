@@ -122,7 +122,7 @@ function Expense() {
   return (
     <div className="expense-container">
       <h2>Add Expense</h2>
-      <div>
+      <div className="add-expense-section">
         <form onSubmit={editingExpenseId !== null ? handleUpdate : handleSubmit}>
           <div>
             <label>
