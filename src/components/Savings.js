@@ -87,6 +87,7 @@ function SavingsGoals() {
 
   const handleUpdate = async () => {
     try {
+      e.preventDefault();
       const response = await fetch(`http://20.163.179.25:8000/api/savings-goals/${userId}/${editingSavingsGoalId}`, {
         method: 'PUT',
         headers: commonHeaders,
