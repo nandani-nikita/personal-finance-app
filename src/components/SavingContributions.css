@@ -26,6 +26,7 @@
 }
 
 .add-contribution-section input,
+.add-contribution-section select,
 .add-contribution-section button {
   flex: 1 1 45%; /* Adjust the width as needed */
   margin-bottom: 10px;
